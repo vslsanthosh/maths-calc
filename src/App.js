@@ -86,8 +86,8 @@ const [low4, setLow4] = useState();
   );
 
   function calculateRangeMPoint(lowValue){
-    setMPoint((parseInt(high) + parseInt(lowValue))/2);
-    setRange((parseInt(high) - parseInt(lowValue))/2);
+    setMPoint((parseFloat(high) + parseFloat(lowValue))/2);
+    setRange((parseFloat(high) - parseFloat(lowValue))/2);
     setLow(lowValue)
   }
   // function calculate(){
@@ -96,14 +96,14 @@ const [low4, setLow4] = useState();
   //   calculateHighLow();
   // }
   function calculateHighLow(){
-    setHigh1( parseInt(high)  + (range * 1));
-    setHigh2( parseInt(high)  + (range *2));
-    setHigh3( parseInt(high)  + (range * 3));
-    setHigh4( parseInt(high)  + (range * 4));
-    setLow1( parseInt(low) - (range * 1));
-    setLow2( parseInt(low) - (range * 2));
-    setLow3( parseInt(low) - (range * 3));
-    setLow4( parseInt(low) - (range * 4));
+    setHigh1( parseFloat(high)  + (range * 1));
+    setHigh2( parseFloat(high)  + (range *2));
+    setHigh3( parseFloat(high)  + (range * 3));
+    setHigh4( parseFloat(high)  + (range * 4));
+    setLow1( parseFloat(low) - (range * 1));
+    setLow2( parseFloat(low) - (range * 2));
+    setLow3( parseFloat(low) - (range * 3));
+    setLow4( parseFloat(low) - (range * 4));
   }
 }
 
