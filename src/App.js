@@ -96,14 +96,14 @@ const [low4, setLow4] = useState();
   //   calculateHighLow();
   // }
   function calculateHighLow(){
-    setHigh1( parseFloat(high).toFixed(5)  + (range * 1));
-    setHigh2( parseFloat(high).toFixed(5)  + (range *2));
-    setHigh3( parseFloat(high).toFixed(5)  + (range * 3));
-    setHigh4( parseFloat(high).toFixed(5)  + (range * 4));
-    setLow1( parseFloat(low).toFixed(5) - (range * 1));
-    setLow2( parseFloat(low).toFixed(5) - (range * 2));
-    setLow3( parseFloat(low).toFixed(5) - (range * 3));
-    setLow4( parseFloat(low).toFixed(5) - (range * 4));
+    setHigh1( parseFloat(high)  + (range * 1)).toFixed(5);
+    setHigh2( parseFloat(high)  + (range *2)).toFixed(5);
+    setHigh3( parseFloat(high)  + (range * 3)).toFixed(5);
+    setHigh4( parseFloat(high)  + (range * 4)).toFixed(5);
+    setLow1( parseFloat(low)  - (range * 1)).toFixed(5);
+    setLow2( parseFloat(low)  - (range * 2)).toFixed(5);
+    setLow3( parseFloat(low)  - (range * 3)).toFixed(5);
+    setLow4( parseFloat(low)  - (range * 4)).toFixed(5);
   }
 }
 
