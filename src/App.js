@@ -3,7 +3,6 @@ import Button from '@mui/material/Button';
 import { TextField, Box, TableContainer, Table, TableRow, 
    TableCell, TableBody} from '@mui/material';
 import React, {  useState } from "react";
-import { Label } from '@mui/icons-material';
 function App() {
   const [high, setHigh] = useState();
   const [low, setLow] = useState();
