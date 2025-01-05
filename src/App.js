@@ -3,6 +3,7 @@ import Button from '@mui/material/Button';
 import { TextField, Box, TableContainer, Table, TableRow, 
    TableCell, TableBody} from '@mui/material';
 import React, {  useState } from "react";
+import { Label } from '@mui/icons-material';
 function App() {
   const [high, setHigh] = useState();
   const [low, setLow] = useState();
@@ -16,6 +17,8 @@ const [high3, setHigh3] = useState();
 const [low3, setLow3] = useState();
 const [high4, setHigh4] = useState();
 const [low4, setLow4] = useState();
+const [targetPrice, settargetPrice] = useState();
+const [targetPrec, settargetPrec] = useState();
 
   return (
     <div className="App">
@@ -27,6 +30,10 @@ const [low4, setLow4] = useState();
           <Button variant="contained" onClick={() => {calculateHighLow(); }}>
               Calculate
           </Button>
+
+          <TextField id="entryPrice" label="Target Price" onChange={(event) => {getTargetPrecentage (event.target.value)}} />
+           Target Price : {targetPrice} 
+           Target Percentage : {targetPrec}
     </Box>
 
     <TableContainer>
@@ -104,6 +111,79 @@ const [low4, setLow4] = useState();
     setLow2( (parseFloat(low)  - (range * 2)).toFixed(5));
     setLow3( (parseFloat(low)  - (range * 3)).toFixed(5));
     setLow4( (parseFloat(low)  - (range * 4)).toFixed(5));
+  }
+
+  function getTargetPrecentage(entryPrice){
+    let difference = 0;
+        let average = 0;
+        let percentage =0;
+        let targetPrice = 0;
+    if(entryPrice > MPoint)
+    {
+      if(entryPrice > MPoint && entryPrice < high1)
+      {
+         difference = high1 - entryPrice;
+         average = (high1 + entryPrice) /2;
+         percentage = (difference / average) * 100;
+         targetPrice = high1;
+      }
+      else if(entryPrice > high1 && entryPrice < high2)
+        {
+           difference = high2 - entryPrice;
+           average = (high2 + entryPrice) /2;
+           percentage = (difference / average) * 100;
+           targetPrice = high2;
+          
+        } 
+          else if(entryPrice > high2 && entryPrice < high3)
+          {
+             difference = high3 - entryPrice;
+             average = (high3 + entryPrice) /2;
+             percentage = (difference / average) * 100;
+             targetPrice = high3;
+          } 
+          else if(entryPrice > high3 && entryPrice < high4)
+          {
+             difference = high4 - entryPrice;
+             average = (high4 + entryPrice) /2;
+             percentage = (difference / average) * 100;
+             targetPrice = high4;
+          }
+    }
+    else if(entryPrice < MPoint)
+    {
+
+      if(entryPrice < MPoint && entryPrice > low1)
+      {
+         difference = entryPrice - low1;
+         average = (low1 + entryPrice) /2;
+         percentage = (difference / average) * 100;
+         targetPrice = low1;
+      }
+      else if(entryPrice < low1 && entryPrice > low2)
+        {
+           difference = entryPrice - low2;
+           average = (low2 + entryPrice) /2;
+           percentage = (difference / average) * 100;
+           targetPrice = low2;
+    }
+    else if(entryPrice < low2 && entryPrice > low3)
+    {
+       difference = entryPrice - low3;
+       average = (low3 + entryPrice) /2;
+       percentage = (difference / average) * 100;
+       targetPrice = low3;
+    }
+    else if(entryPrice < low3 && entryPrice > low4)
+    {
+       difference = entryPrice - low4;
+       average = (low4 + entryPrice) /2;
+       percentage = (difference / average) * 100;
+       targetPrice = low4;
+    }
+    }
+    settargetPrice(targetPrice);
+    settargetPrec(percentage);
   }
 }
 
